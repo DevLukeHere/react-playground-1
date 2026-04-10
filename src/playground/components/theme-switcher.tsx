@@ -3,8 +3,6 @@ import { type ThemeMode, useDesignSystem } from "@xsolla/xui-core";
 const THEME_OPTIONS: { label: string; value: ThemeMode }[] = [
 	{ label: "Dark", value: "dark" },
 	{ label: "Light", value: "light" },
-	{ label: "Xsolla Dark", value: "xsollaDark" },
-	{ label: "Xsolla Light", value: "xsollaLight" },
 	{ label: "LTG Dark", value: "ltg-dark" },
 ];
 
