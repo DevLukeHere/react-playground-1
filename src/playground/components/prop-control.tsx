@@ -38,6 +38,7 @@ function PropControl({ controls }: { controls: ControlDef[] }) {
 	return (
 		<div className="flex flex-wrap gap-4 p-4 rounded-lg bg-white/5 border border-white/10">
 			{controls.map((ctrl) => (
+				// biome-ignore lint/a11y/noLabelWithoutControl: inputs are nested inside label
 				<label
 					key={ctrl.label}
 					className="flex flex-col gap-1 text-sm text-white/70"

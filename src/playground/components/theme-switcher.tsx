@@ -1,4 +1,4 @@
-import { useDesignSystem, type ThemeMode } from "@xsolla/xui-core";
+import { type ThemeMode, useDesignSystem } from "@xsolla/xui-core";
 
 const THEME_OPTIONS: { label: string; value: ThemeMode }[] = [
 	{ label: "Dark", value: "dark" },
