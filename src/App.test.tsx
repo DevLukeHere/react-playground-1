@@ -1,9 +1,13 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "./App";
+import { useCounterStore } from "@/states/useCounterStore";
 
 describe("App", () => {
+  beforeEach(() => {
+    useCounterStore.getState().reset();
+  });
   it("renders the app with logos and heading", () => {
     render(<App />);
 
