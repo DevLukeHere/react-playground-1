@@ -17,6 +17,10 @@ const NAV_CONFIG: NavGroup[] = [
 		items: [{ label: "Home", to: "/" }],
 	},
 	{
+		category: "Controls",
+		items: [{ label: "Calendar", to: "/calendar" }],
+	},
+	{
 		category: "Feedback",
 		items: [{ label: "Toast", to: "/toast" }],
 	},
@@ -70,4 +74,4 @@ function Sidebar() {
 	);
 }
 
-export { Sidebar, NAV_CONFIG };
+export { NAV_CONFIG, Sidebar };

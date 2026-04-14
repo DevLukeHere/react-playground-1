@@ -4,10 +4,11 @@ import {
 	createRouter,
 } from "@tanstack/react-router";
 import { PlaygroundLayout } from "@/playground/layout";
+import { CalendarPage } from "@/playground/pages/calendar";
 import { HomePage } from "@/playground/pages/home";
-import { ToastPage } from "@/playground/pages/toast";
 import { IconsPage } from "@/playground/pages/icons";
 import { ThemePage } from "@/playground/pages/theme";
+import { ToastPage } from "@/playground/pages/toast";
 
 const rootRoute = createRootRoute({
 	component: PlaygroundLayout,
@@ -37,11 +38,18 @@ const themeRoute = createRoute({
 	component: ThemePage,
 });
 
+const calendarRoute = createRoute({
+	getParentRoute: () => rootRoute,
+	path: "/calendar",
+	component: CalendarPage,
+});
+
 const routeTree = rootRoute.addChildren([
 	homeRoute,
 	toastRoute,
 	iconsRoute,
 	themeRoute,
+	calendarRoute,
 ]);
 
 const router = createRouter({ routeTree });

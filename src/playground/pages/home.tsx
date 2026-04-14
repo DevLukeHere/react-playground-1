@@ -1,22 +1,12 @@
 import { Link } from "@tanstack/react-router";
+import pkg from "../../../package.json";
 
-const PACKAGES = [
-	{
-		name: "@xsolla/xui-core",
-		version: "0.128.0",
-		description: "Theming, tokens, provider",
-	},
-	{
-		name: "@xsolla/xui-toast",
-		version: "0.128.0",
-		description: "Toast notifications",
-	},
-	{
-		name: "@xsolla/xui-icons",
-		version: "0.128.0",
-		description: "Lucide-based icon set",
-	},
-];
+const XUI_PACKAGES = Object.entries({
+	...pkg.dependencies,
+	...pkg.devDependencies,
+})
+	.filter(([name]) => name.startsWith("@xsolla/"))
+	.map(([name, version]) => ({ name, version: version.replace(/^\^/, "") }));
 
 const QUICK_LINKS = [
 	{ label: "Toast", to: "/toast" },
@@ -37,21 +27,14 @@ function HomePage() {
 					Installed Packages
 				</h3>
 				<div className="flex flex-col gap-2">
-					{PACKAGES.map((pkg) => (
+					{XUI_PACKAGES.map((p) => (
 						<div
-							key={pkg.name}
+							key={p.name}
 							className="flex items-baseline justify-between p-3 rounded-lg bg-white/[0.03] border border-white/10"
 						>
-							<div>
-								<span className="text-sm font-mono text-cyan-400">
-									{pkg.name}
-								</span>
-								<span className="text-xs text-white/40 ml-2">
-									{pkg.description}
-								</span>
-							</div>
+							<span className="text-sm font-mono text-cyan-400">{p.name}</span>
 							<span className="text-xs font-mono text-white/30">
-								{pkg.version}
+								{p.version}
 							</span>
 						</div>
 					))}
