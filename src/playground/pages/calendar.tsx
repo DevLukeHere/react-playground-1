@@ -1,4 +1,4 @@
-import { Calendar, DualCalendar } from "@xsolla/xui-calendar";
+import { Calendar } from "@xsolla/xui-calendar";
 import { DatePicker } from "@xsolla/xui-date-picker";
 import { useState } from "react";
 import { ExampleSection } from "@/playground/components/example-section";
@@ -26,8 +26,16 @@ function CalendarPage() {
 	const [dualStart, setDualStart] = useState<Date | null>(null);
 	const [dualEnd, setDualEnd] = useState<Date | null>(null);
 
+	const [dualChipStart, setDualChipStart] = useState<Date | null>(null);
+	const [dualChipEnd, setDualChipEnd] = useState<Date | null>(null);
+	const [dualActiveChip, setDualActiveChip] = useState<string | null>(null);
+
 	const [pickerDate, setPickerDate] = useState<Date | null>(null);
 	const [pickerSize, setPickerSize] = useState<string>("md");
+	const [pickerVariant, setPickerVariant] = useState<string>("single");
+
+	const [dualPickerStart, setDualPickerStart] = useState<Date | null>(null);
+	const [dualPickerEnd, setDualPickerEnd] = useState<Date | null>(null);
 
 	const pickerControls: ControlDef[] = [
 		{
@@ -42,6 +50,21 @@ function CalendarPage() {
 				{ label: "XL", value: "xl" },
 			],
 			onChange: setPickerSize,
+		},
+		{
+			type: "select",
+			label: "Variant",
+			value: pickerVariant,
+			options: [
+				{ label: "Single", value: "single" },
+				{ label: "Dual", value: "dual" },
+			],
+			onChange: (v) => {
+				setPickerVariant(v);
+				setPickerDate(null);
+				setDualPickerStart(null);
+				setDualPickerEnd(null);
+			},
 		},
 	];
 
@@ -127,22 +150,42 @@ function CalendarPage() {
 
 				<ExampleSection
 					title="Dual Calendar"
-					description="Side-by-side calendars for range selection."
+					description="DatePicker input with dual calendar dropdown for range selection."
 				>
-					<div className="flex flex-col gap-2">
-						<DualCalendar
+					<div className="max-w-sm min-h-105">
+						<DatePicker
+							variant="dual"
 							startDate={dualStart}
 							endDate={dualEnd}
-							onChange={(dates) => {
-								const [start, end] = dates;
+							onChange={(d) => {
+								const [start, end] = d as [Date | null, Date | null];
 								setDualStart(start);
 								setDualEnd(end);
 							}}
+							placeholder="Select date range"
 						/>
-						<div className="text-sm text-white/50">
-							{dualStart?.toLocaleDateString() ?? "—"} to{" "}
-							{dualEnd?.toLocaleDateString() ?? "—"}
-						</div>
+					</div>
+				</ExampleSection>
+
+				<ExampleSection
+					title="Dual Calendar with Chips"
+					description="DatePicker input with dual calendar and preset chip selection."
+				>
+					<div className="max-w-sm min-h-105">
+						<DatePicker
+							variant="dual"
+							startDate={dualChipStart}
+							endDate={dualChipEnd}
+							onChange={(d) => {
+								const [start, end] = d as [Date | null, Date | null];
+								setDualChipStart(start);
+								setDualChipEnd(end);
+							}}
+							chips={CHIPS}
+							activeChip={dualActiveChip}
+							onChipSelect={setDualActiveChip}
+							placeholder="Select date range"
+						/>
 					</div>
 				</ExampleSection>
 
@@ -151,11 +194,24 @@ function CalendarPage() {
 					description="Input field that opens a calendar dropdown."
 				>
 					<PropControl controls={pickerControls} />
-					<div className="mt-4 max-w-xs min-h-[420px]">
+					<div className="mt-4 max-w-sm min-h-105">
 						<DatePicker
-							selectedDate={pickerDate}
-							onChange={(d) => setPickerDate(d as Date)}
-							placeholder="Select a date"
+							variant={pickerVariant as "single" | "dual"}
+							selectedDate={pickerVariant === "single" ? pickerDate : undefined}
+							startDate={pickerVariant === "dual" ? dualPickerStart : undefined}
+							endDate={pickerVariant === "dual" ? dualPickerEnd : undefined}
+							onChange={(d) => {
+								if (pickerVariant === "dual") {
+									const [start, end] = d as [Date | null, Date | null];
+									setDualPickerStart(start);
+									setDualPickerEnd(end);
+								} else {
+									setPickerDate(d as Date);
+								}
+							}}
+							placeholder={
+								pickerVariant === "dual" ? "Select date range" : "Select a date"
+							}
 							size={pickerSize as "xs" | "sm" | "md" | "lg" | "xl"}
 						/>
 					</div>
