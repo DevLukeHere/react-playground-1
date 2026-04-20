@@ -18,7 +18,10 @@ const NAV_CONFIG: NavGroup[] = [
 	},
 	{
 		category: "Controls",
-		items: [{ label: "Calendar", to: "/calendar" }],
+		items: [
+			{ label: "Calendar", to: "/calendar" },
+			{ label: "Input Time", to: "/input-time" },
+		],
 	},
 	{
 		category: "Feedback",

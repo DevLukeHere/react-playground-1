@@ -6,6 +6,7 @@ import {
 import { PlaygroundLayout } from "@/playground/layout";
 import { CalendarPage } from "@/playground/pages/calendar";
 import { HomePage } from "@/playground/pages/home";
+import { InputTimePage } from "@/playground/pages/input-time";
 import { IconsPage } from "@/playground/pages/icons";
 import { ThemePage } from "@/playground/pages/theme";
 import { ToastPage } from "@/playground/pages/toast";
@@ -44,12 +45,19 @@ const calendarRoute = createRoute({
 	component: CalendarPage,
 });
 
+const inputTimeRoute = createRoute({
+	getParentRoute: () => rootRoute,
+	path: "/input-time",
+	component: InputTimePage,
+});
+
 const routeTree = rootRoute.addChildren([
 	homeRoute,
 	toastRoute,
 	iconsRoute,
 	themeRoute,
 	calendarRoute,
+	inputTimeRoute,
 ]);
 
 const router = createRouter({ routeTree });
