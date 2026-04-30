@@ -5,6 +5,7 @@ import {
 } from "@tanstack/react-router";
 import { PlaygroundLayout } from "@/playground/layout";
 import { CalendarPage } from "@/playground/pages/calendar";
+import { CheckboxPage } from "@/playground/pages/checkbox";
 import { HomePage } from "@/playground/pages/home";
 import { InputTimePage } from "@/playground/pages/input-time";
 import { IconsPage } from "@/playground/pages/icons";
@@ -58,6 +59,12 @@ const tabsRoute = createRoute({
 	component: TabsPage,
 });
 
+const checkboxRoute = createRoute({
+	getParentRoute: () => rootRoute,
+	path: "/checkbox",
+	component: CheckboxPage,
+});
+
 const routeTree = rootRoute.addChildren([
 	homeRoute,
 	toastRoute,
@@ -66,6 +73,7 @@ const routeTree = rootRoute.addChildren([
 	calendarRoute,
 	inputTimeRoute,
 	tabsRoute,
+	checkboxRoute,
 ]);
 
 const router = createRouter({ routeTree });

@@ -20,6 +20,7 @@ const NAV_CONFIG: NavGroup[] = [
 		category: "Controls",
 		items: [
 			{ label: "Calendar", to: "/calendar" },
+			{ label: "Checkbox", to: "/checkbox" },
 			{ label: "Input Time", to: "/input-time" },
 		],
 	},

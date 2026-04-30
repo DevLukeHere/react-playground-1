@@ -9,6 +9,7 @@
         "@tanstack/react-query": "^5.99.0",
         "@tanstack/react-router": "^1.168.21",
         "@xsolla/xui-calendar": "0.148.1",
+        "@xsolla/xui-checkbox": "^0.148.1",
         "@xsolla/xui-core": "0.148.1",
         "@xsolla/xui-date-picker": "0.148.1",
         "@xsolla/xui-input-time": "0.148.1",
@@ -288,6 +289,8 @@
     "@xsolla/xui-button": ["@xsolla/xui-button@0.148.1", "", { "dependencies": { "@xsolla/xui-core": "0.148.1", "@xsolla/xui-icons": "0.148.1", "@xsolla/xui-primitives-core": "0.148.1" }, "peerDependencies": { "react": ">=16.8.0", "styled-components": ">=4" } }, "sha512-lVUaS8W/AHSYIirLzdSLGqJJ5023g9KygnShVMgHhC2TAy/LiOSUUEtbPkVA6L54E/2UbfNX2avgdmoPVAPNqg=="],
 
     "@xsolla/xui-calendar": ["@xsolla/xui-calendar@0.148.1", "", { "dependencies": { "@xsolla/xui-button": "0.148.1", "@xsolla/xui-core": "0.148.1", "@xsolla/xui-icons-base": "0.148.1", "@xsolla/xui-primitives-core": "0.148.1", "@xsolla/xui-select": "0.148.1", "@xsolla/xui-tag": "0.148.1", "date-fns": "^3.0.0" }, "peerDependencies": { "react": ">=16.8.0" } }, "sha512-qiHawCTMcUmVxUTakLcQMGo8ibj6prm0ZJhMgQTRhzV/jomolfSki7J/Z2JvRnV3BeIaC619PL+HpmiCdLFDwA=="],
+
+    "@xsolla/xui-checkbox": ["@xsolla/xui-checkbox@0.148.1", "", { "dependencies": { "@xsolla/xui-core": "0.148.1", "@xsolla/xui-icons": "0.148.1", "@xsolla/xui-primitives-core": "0.148.1" }, "peerDependencies": { "react": ">=16.8.0", "styled-components": ">=4" } }, "sha512-V1ulaEFqQ5feRJzgn+kbF6U4l9+xNmbJMFeDS4pvCiSsqQk31POIbtGOBGi+nTxhPpAtIjgvMa4TooV5Uw78Iw=="],
 
     "@xsolla/xui-core": ["@xsolla/xui-core@0.148.1", "", { "peerDependencies": { "react": ">=16.8.0" } }, "sha512-rzfARKlz8nFRqrYXTCh1+Wrv2vynTS2c0KPWmM2XbuMV3FpLWpqLmrWe5IvB9iHxAFB9zueqW8sCfQ3KA+509g=="],
 
