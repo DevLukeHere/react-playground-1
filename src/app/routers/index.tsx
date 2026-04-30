@@ -8,6 +8,7 @@ import { CalendarPage } from "@/playground/pages/calendar";
 import { HomePage } from "@/playground/pages/home";
 import { InputTimePage } from "@/playground/pages/input-time";
 import { IconsPage } from "@/playground/pages/icons";
+import { TabsPage } from "@/playground/pages/tabs";
 import { ThemePage } from "@/playground/pages/theme";
 import { ToastPage } from "@/playground/pages/toast";
 
@@ -51,6 +52,12 @@ const inputTimeRoute = createRoute({
 	component: InputTimePage,
 });
 
+const tabsRoute = createRoute({
+	getParentRoute: () => rootRoute,
+	path: "/tabs",
+	component: TabsPage,
+});
+
 const routeTree = rootRoute.addChildren([
 	homeRoute,
 	toastRoute,
@@ -58,6 +65,7 @@ const routeTree = rootRoute.addChildren([
 	themeRoute,
 	calendarRoute,
 	inputTimeRoute,
+	tabsRoute,
 ]);
 
 const router = createRouter({ routeTree });

@@ -24,6 +24,10 @@ const NAV_CONFIG: NavGroup[] = [
 		],
 	},
 	{
+		category: "Navigation",
+		items: [{ label: "Tabs", to: "/tabs" }],
+	},
+	{
 		category: "Feedback",
 		items: [{ label: "Toast", to: "/toast" }],
 	},

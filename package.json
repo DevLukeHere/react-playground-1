@@ -25,6 +25,7 @@
 		"@xsolla/xui-date-picker": "0.148.1",
 		"@xsolla/xui-input-time": "0.148.1",
 		"@xsolla/xui-primitives-core": "0.148.1",
+		"@xsolla/xui-tabs": "0.148.1",
 		"@xsolla/xui-toast": "0.148.1",
 		"axios": "^1.15.0",
 		"react": "^19.2.5",
